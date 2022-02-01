@@ -8,13 +8,16 @@ namespace OktaUserMig
 {
     class Program
     {
+        [JsonProperty("profile")]
+        private static User User;
+
         static void Main(string[] args)
         {
             var maxUniqueId = DataAccess.GetHighestUniqueUserId();
             var user = DataAccess.LoadUserInfo("1");
 
-            var profile = new Profile(user);
-            var serializeObject = JsonConvert.SerializeObject(profile);
+            User = new User(user);
+            var serializeObject = JsonConvert.SerializeObject(User);
 
             var request = (HttpWebRequest)WebRequest.Create(@"https://ncrcmcguinea-admin.okta.com//api/v1/users?activate=false");
             request.Method = "POST";
