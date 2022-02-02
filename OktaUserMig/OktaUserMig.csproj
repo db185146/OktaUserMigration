@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OktaInterface.cs" />
     <Compile Include="Users\Credentials.cs" />
     <Compile Include="DataAccess.cs" />
     <Compile Include="Users\Hash.cs" />

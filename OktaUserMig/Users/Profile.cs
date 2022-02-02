@@ -9,7 +9,8 @@ namespace OktaUserMig.Users
         {
             FirstName = "David";
             LastName = "Turner";
-            Email = dataRow.ItemArray[3].ToString();
+            // Email = dataRow.ItemArray[3].ToString();
+            Email = "1@gmail.com";
             Login = dataRow.ItemArray[3].ToString();
             MobilePhone = "555-415-1335";
         }
