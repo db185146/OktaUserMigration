@@ -13,9 +13,13 @@ namespace OktaUserMig.Users
         public User(DataRow dataRow)
         {
             Profile = new Profile(dataRow);
+            Credentials = new Credentials(dataRow);
         }
 
         [JsonProperty("profile")]
         public Profile Profile { get; set; }
+
+        [JsonProperty("credentials")]
+        public Credentials Credentials { get; set; }
     }
 }

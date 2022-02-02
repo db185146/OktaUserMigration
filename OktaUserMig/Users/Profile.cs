@@ -12,7 +12,6 @@ namespace OktaUserMig.Users
             Email = dataRow.ItemArray[3].ToString();
             Login = dataRow.ItemArray[3].ToString();
             MobilePhone = "555-415-1335";
-            Credentials = new Credentials(dataRow);
         }
 
         [JsonProperty("firstName")]
@@ -29,8 +28,5 @@ namespace OktaUserMig.Users
 
         [JsonProperty("mobilePhone")]
         public string MobilePhone { get; set; }
-
-        [JsonProperty("credentials")]
-        public Credentials Credentials { get; set; }
     }
 }

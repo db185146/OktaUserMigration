@@ -8,9 +8,9 @@ namespace OktaUserMig.Users
         public Hash(DataRow dataRow)
         {
             Algorithm = "BCRYPT";
-            WorkFactor = 10;
-            Salt = "???";
-            Value = dataRow.ItemArray[4].ToString();
+            WorkFactor = 12;
+            Salt = "sGXv3cxpsh0i8qdicSzvs.";
+            Value = "ZB.ctMIgWHPM.Je6xzSjRVeF39YqyMC";
         }
 
         [JsonProperty("value")]
