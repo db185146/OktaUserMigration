@@ -8,18 +8,15 @@ namespace OktaUserMig
     {
         [JsonProperty("profile")]
         private static User User;
-
+        
         static void Main(string[] args)
         {
-            var maxUniqueId = DataAccess.GetHighestUniqueUserId();
-            var user = DataAccess.LoadUserInfo("1");
+            User = new User(DataAccess.LoadUserInfo("1"));
+            var result = OktaInterface.CreateUser(JsonConvert.SerializeObject(User));
+            Console.WriteLine($"Create user result\n{result}");
 
-            User = new User(user);
-            var userJson = JsonConvert.SerializeObject(User);
-
-            var result = OktaInterface.CreateUser(userJson);
-
-            Console.WriteLine(result);
+            result = OktaInterface.AuthenticateUser(JsonConvert.SerializeObject(new Authenticate(DataAccess.LoadUserInfo("1"))));
+            Console.WriteLine($"\n\nAuthenticate result\n{result}");
             Console.ReadLine();
         }
     }

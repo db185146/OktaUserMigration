@@ -9,8 +9,17 @@ namespace OktaUserMig
 
         public static string CreateUser(string userJson)
         {
-            var request =
-                (HttpWebRequest)WebRequest.Create($"https://{Workspace}/api/v1/users?activate=false");
+            return SendRequest(userJson, $"https://{Workspace}/api/v1/users?activate=true");
+        }
+
+        public static string AuthenticateUser(string userJson)
+        {
+            return SendRequest(userJson, $"https://{Workspace}/api/v1/authn");
+        }
+
+        private static string SendRequest(string userJson, string requestUriString)
+        {
+            var request = (HttpWebRequest)WebRequest.Create(requestUriString);
             request.Method = "POST";
             request.Accept = "application/json";
             request.ContentType = "application/json";

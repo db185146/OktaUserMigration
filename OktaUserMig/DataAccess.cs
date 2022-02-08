@@ -17,6 +17,9 @@ namespace OktaUserMig
             return ExecuteSqlCommand($"select * from RDF_Users where UniqueID={uniqueUserId}");
         }
 
+
+        //when running this, we can iterate from 1 to
+        //the highest unique user id to get all the users
         internal static DataRow GetHighestUniqueUserId()
         {
             return ExecuteSqlCommand("select MAX(UniqueID) from RDF_Users");
